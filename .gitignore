@@ -1,0 +1,4 @@
+line-tts-m4a/test/pipeline-worker/worker.js
+line-tts-m4a/test/pipeline-worker/.wrangler/
+line-tts-m4a/test/pipeline-worker/.dev.vars
+node_modules/
