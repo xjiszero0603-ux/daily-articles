@@ -1,0 +1,16 @@
+# 本機測試整條管線用：先執行 ./build.sh 產生 worker.js，再 npx wrangler dev
+name = "tts-m4a-pipeline-test"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+[[r2_buckets]]
+binding = "AUDIO_BUCKET"
+bucket_name = "tts-audio"
+
+[vars]
+# 用真的 Gemini 就把 GEMINI_API_BASE 刪掉，並用 .dev.vars 設定 GEMINI_API_KEY
+GEMINI_API_BASE = "http://127.0.0.1:8788"
+GEMINI_API_KEY = "mock"
+PUBLIC_AUDIO_BASE_URL = "http://127.0.0.1:8787"
+# 若要實際推播：在 .dev.vars 設定 LINE_CHANNEL_ACCESS_TOKEN 與 LINE_TO_USER_ID
+# （LINE 需要能從外網用 HTTPS 存取音檔，PUBLIC_AUDIO_BASE_URL 要換成公開網址）
